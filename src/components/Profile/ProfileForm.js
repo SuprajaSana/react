@@ -2,10 +2,14 @@ import { useContext, useRef } from 'react';
 import AuthContext from '../../sture/auth-context';
 import classes from './ProfileForm.module.css';
 
+import { useHistory } from 'react-router-dom';
+
 const ProfileForm = () => {
 
   const passwordChangeRef=useRef('')
   const authCtx=useContext(AuthContext)
+
+  const history=useHistory()
 
   const submitHandler=(event)=>
   {
@@ -21,7 +25,7 @@ const ProfileForm = () => {
         returnSecureToken:true
       })
      }).then((response)=>{
-          console.log(1)
+          history.replace('/')
      })
   }
 
